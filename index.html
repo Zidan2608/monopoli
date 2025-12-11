@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Game Edukasi Monopoli - Preview</title>
+    </head>
+    <body>
+        <div class="game-container">
+            <div class="game-board-section">
+                <h1 class="game-title">🎓 Game Edukasi Monopoli 🎲</h1>
+
+                <div class="board-container">
+                    <div class="game-board" id="gameBoard">
+                        <!-- Board tiles akan di-generate oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <div class="current-player">
+                    <h3 id="currentPlayerText">Giliran: Pemain 1</h3>
+                </div>
+
+                <div class="dice-section">
+                    <h4>🎲 Lempar Dadu</h4>
+                    <div class="dice-display" id="diceDisplay">?</div>
+                    <button
+                        class="roll-button"
+                        id="rollButton"
+                        onclick="rollDice()">
+                        Lempar Dadu
+                    </button>
+
+                    <div style="margin-top:12px; display:flex; gap:8px; justify-content:center;">
+                        <button class="control-button" id="startButton" onclick="startGame()">▶️ Mulai Permainan</button>
+                        <button class="control-button" id="resetButton" onclick="resetGame()">🔁 Reset</button>
+                        <button class="control-button" id="clearLogBtn" onclick="clearLog()">🧹 Bersihkan Log</button>
+                    </div>
+                </div>
+
+                <div class="game-info" id="gameInfo">
+                    Selamat datang! Mulai permainan dengan melempar dadu.
+                </div>
+
+                <div class="player-stats">
+                    <h4>📊 Status Pemain</h4>
+                    <div id="playerStats">
+                        <!-- Player stats akan di-generate oleh JavaScript -->
+                    </div>
+                </div>
+
+                <div class="player-controls">
+                    <button class="control-button" id="addPlayerBtn" onclick="addPlayer()">+ Tambah Pemain</button>
+                    <button class="control-button" id="removePlayerBtn" onclick="removePlayer()">- Hapus Pemain</button>
+                </div>
+
+                <div class="game-log">
+                    <h4>📝 Log Permainan</h4>
+                    <div id="gameLog"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question Modal -->
+        <div class="question-modal hidden" id="questionModal">
+            <div class="question-card">
+                <div class="question-text" id="questionText"></div>
+                <div id="answerButtons"></div>
+            </div>
+        </div>
+
+        <!-- Card Modal -->
+        <div class="card-modal hidden" id="cardModal" onclick="if(event.target === this) closeCardModal()">
+            <div class="card-display" onclick="event.stopPropagation()">
+                <div class="card-header" id="cardHeader"></div>
+                <div class="card-content" id="cardContent"></div>
+                <button class="card-close-button" onclick="closeCardModal()">Tutup</button>
+            </div>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>
